@@ -1,0 +1,21 @@
+# 2. Homepage（超漂亮仪表盘主页）
+# 文件夹：homepage/docker-compose.yml
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`home.165.22.241.196.nip.io`)"
+      - "traefik.http.routers.homepage.entrypoints=websecure"
+      - "traefik.http.routers.homepage.tls.certresolver=letsencrypt"
+    networks:
+      - traefik_net
+
+networks:
+  traefik_net:
+    external: true

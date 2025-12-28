@@ -1,0 +1,31 @@
+# traefik.yml ← 改成这样（重点删掉 insecure，8080 端口也建议删）
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+api:
+  dashboard: true      # 保留，但绝不能加 insecure
+  # insecure: true     # ← 删掉这行！或者明确写 insecure: false
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+    http3: true        # 可选，开启 HTTP/3
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik_net   # 加上这行更稳（虽然你默认网络也是这个）
+  file:
+    directory: "/dynamic"
+    watch: true
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: wsklilin68@gmail.com
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: web

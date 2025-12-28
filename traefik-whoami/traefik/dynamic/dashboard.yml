@@ -1,0 +1,19 @@
+# dynamic/dashboard.yml   ← 完整正确版，直接替换
+http:
+  routers:
+    dashboard:
+      rule: Host(`traefik.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  # ← 这里必须 /dashboard/
+      service: api@internal
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+      middlewares:
+        - auth-dashboard
+      priority: 1000   # 可选：加个高优先级，防止被其他路由抢
+
+  middlewares:
+    auth-dashboard:
+      basicAuth:
+        users:
+          - "admin:$2y$05$a3IeT3I.cJZWVl2ZV7Q52uY7KLbutz7A1Wni9PJawqHiKQJEQ64sG"   # 你原来的密码

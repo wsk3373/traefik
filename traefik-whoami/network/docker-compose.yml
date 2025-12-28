@@ -1,0 +1,15 @@
+#version: "3.8"
+
+# 加一个完全不占资源的假服务
+services:
+  create-network:
+    image: busybox
+    command: echo "traefik_net created"
+    networks:
+      - traefik_net
+
+networks:
+  traefik_net:
+    name: traefik_net
+    driver: bridge
+    external: false   # 改成 false 让 compose 负责创建

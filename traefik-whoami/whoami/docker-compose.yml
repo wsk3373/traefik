@@ -1,0 +1,17 @@
+services:
+  whoami:
+    image: traefik/whoami
+    container_name: whoami
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.165.22.241.196.nip.io`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"   # ← 正确拼写
+      - "traefik.http.routers.whoami.tls=true"
+      - "traefik.http.routers.whoami.tls.certresolver=letsencrypt"
+    networks:
+      - traefik_net                                          # ← 第一处，不能漏！
+
+networks:
+  traefik_net:
+    external: true                                           # ← 第二处

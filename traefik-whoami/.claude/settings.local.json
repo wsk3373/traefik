@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lscpu:*)",
+      "Bash(cat:*)",
+      "Bash(top:*)",
+      "Bash(lsblk:*)",
+      "Bash(ufw status:*)",
+      "Bash(iptables:*)",
+      "Bash(ip:*)",
+      "Bash(ip route:*)",
+      "Bash(ss:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
