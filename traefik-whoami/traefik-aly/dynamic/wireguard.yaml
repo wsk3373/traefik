@@ -1,0 +1,15 @@
+http:
+  routers:
+    headscale:
+      rule: Host(`wireguard.grep2000.com`)
+      service: wireguard-vps
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    headscale-svc:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:51821"  # ← 改成 url（v3 推荐），双引号标准

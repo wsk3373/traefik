@@ -1,0 +1,15 @@
+http:
+  routers:
+    headscale:
+      rule: Host(`headscale.grep2000.com`)
+      service: headscale-svc
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    headscale-svc:
+      loadBalancer:
+        servers:
+          - url: "http://headscale:8080"  # ← 改成 url（v3 推荐），双引号标准

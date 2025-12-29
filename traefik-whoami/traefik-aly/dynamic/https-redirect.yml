@@ -1,0 +1,9 @@
+# dynamic/https-redirect.yml   ← 推荐！最简洁 v3 写法
+entryPoints:
+  web:
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
