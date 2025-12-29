@@ -1,0 +1,14 @@
+http:
+  routers:
+    headscale:
+      rule: Host(`n8n.grep2000.com`)
+      service: n8n-vps
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    n8n-svc:
+      loadBalancer:
+        servers:
