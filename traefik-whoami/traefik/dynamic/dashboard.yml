@@ -16,4 +16,4 @@ http:
     auth-dashboard:
       basicAuth:
         users:
-          - "admin:$2y$05$a3IeT3I.cJZWVl2ZV7Q52uY7KLbutz7A1Wni9PJawqHiKQJEQ64sG"   # 你原来的密码
+          - "admin:$apr1$swPBZ14p$G/8g3SZn90lIeHYqVIanm1"   # 你原来的密码
