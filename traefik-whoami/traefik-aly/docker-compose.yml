@@ -4,6 +4,8 @@ services:
     image: traefik:v3.6.2      # 2025年12月最新的稳定版（你可以直接写 latest，但推荐写明版本）
     container_name: traefik
     restart: unless-stopped
+    env_file:
+      - .env
     ports:
       - "80:80"
       - "443:443"
