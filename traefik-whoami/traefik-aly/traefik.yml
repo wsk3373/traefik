@@ -22,13 +22,13 @@ providers:
     directory: "/dynamic"
     watch: true
 
-certificatesResolvers:
-  letsencrypt:
-    acme:
-      email: wsklilin68@gmail.com
-      storage: /letsencrypt/acme.json
-      httpChallenge:
-        entryPoint: web
+# certificatesResolvers:
+#   letsencrypt:
+#     acme:
+#       email: wsklilin68@gmail.com
+#       storage: /letsencrypt/acme.json
+#       httpChallenge:
+#         entryPoint: web
 
 
 certificatesResolvers:
@@ -36,6 +36,6 @@ certificatesResolvers:
     acme:
       email: wsklilin68@gmail.com
       storage: /letsencrypt/acme.json
-      dnsChallenge:  # ← 改成这个！
-        provider: alidns  # 阿里云用alidns；Cloudflare用cloudflare
+      dnsChallenge:
+        provider: cloudflare  # 阿里云用alidns；Cloudflare用cloudflare
         delayBeforeCheck: 60  # 可选，等60秒让DNS传播
