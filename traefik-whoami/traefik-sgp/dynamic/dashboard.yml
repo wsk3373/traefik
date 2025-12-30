@@ -2,7 +2,7 @@
 http:
   routers:
     dashboard:
-      rule: Host(`traefik.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  # ← 这里必须 /dashboard/
+      rule: Host(`traefik-sgp.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  # ← 这里必须 /dashboard/
       service: api@internal
       entryPoints:
         - websecure

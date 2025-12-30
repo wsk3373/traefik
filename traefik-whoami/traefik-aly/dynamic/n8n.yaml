@@ -9,6 +9,6 @@ http:
         certResolver: letsencrypt
 
   services:
-    n8n-svc:
+    n8n-vps:
       loadBalancer:
         servers: http://10.64.0.7:5678
