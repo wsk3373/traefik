@@ -1,8 +1,8 @@
 http:
   routers:
     headscale:
-      rule: Host(`n8n.47.119.112.92.nip.io`)
-      # rule: Host(`n8n.grep2000.com`)
+      # rule: Host(`n8n.47.119.112.92.nip.io`)
+      rule: Host(`n8n.grep2000.com`)
       service: n8n-vps
       entryPoints:
         - websecure
