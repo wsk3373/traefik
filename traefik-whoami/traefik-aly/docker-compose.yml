@@ -17,16 +17,16 @@ services:
       - "traefik.enable=true"
       # 下面的 labels 已经全部移到 dynamic 里，这里彻底不需要了！
 
-    network_mode: host
+    # network_mode: host
 
-#     ports:
-#       - "80:80"
-#       - "443:443"
-#       - "443:443/udp"        # QUIC HTTP/3（可选）
-#      - "8080:8080"          # 只在调试时开放，正式环境建议删掉
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"        # QUIC HTTP/3（可选）
+      - "8080:8080"          # 只在调试时开放，正式环境建议删掉
 
-#     networks:
-#       - traefik_net
-# networks:
-#   traefik_net:
-#     external: true
+    networks:
+      - traefik_net
+networks:
+  traefik_net:
+    external: true
