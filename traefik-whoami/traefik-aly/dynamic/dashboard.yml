@@ -1,9 +1,14 @@
+
 # dynamic/dashboard.yml   ← 完整正确版，直接替换
 http:
   routers:
     dashboard:
+<<<<<<< HEAD
       rule: Host(`traefik-aly.165.22.241.196.nip.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  
       # rule: Host(`traefik-aly.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`)) 
+=======
+      rule: Host(`traefik-aly.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))  # ← 这里必须 /dashboard/
+>>>>>>> 91dc76f9a6c728b9165365d5924a57132e7d1356
       service: api@internal
       entryPoints:
         - websecure
