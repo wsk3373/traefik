@@ -16,8 +16,10 @@ entryPoints:
 
 providers:
   docker:
-    exposedByDefault: false
-    network: traefik_net   # 加上这行更稳（虽然你默认网络也是这个）
+    enabled: false
+
+    # exposedByDefault: false
+    # network: traefik_net   # 加上这行更稳（虽然你默认网络也是这个）
   file:
     directory: "/dynamic"
     watch: true
