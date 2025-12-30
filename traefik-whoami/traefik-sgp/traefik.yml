@@ -22,10 +22,21 @@ providers:
     directory: "/dynamic"
     watch: true
 
+# certificatesResolvers:
+#   letsencrypt:
+#     acme:
+#       email: wsklilin68@gmail.com
+#       storage: /letsencrypt/acme.json
+#       httpChallenge:
+#         entryPoint: web
+
+
 certificatesResolvers:
   letsencrypt:
     acme:
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
       email: wsklilin68@gmail.com
       storage: /letsencrypt/acme.json
-      httpChallenge:
-        entryPoint: web
+      dnsChallenge:
+        provider: cloudflare  # 阿里云用alidns；Cloudflare用cloudflare
+        delayBeforeCheck: 60  # 可选，等60秒让DNS传播
