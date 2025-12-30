@@ -1,25 +1,22 @@
+
+# dynamic/dashboard.yml   ← 完整正确版，直接替换
 http:
   routers:
     dashboard:
-      rule: Host(`traefik-aly.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))
-      service: dashboard-service
+      # rule: Host(`traefik-aly.47.119.112.92.nip.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  
+      rule: Host(`traefik-aly.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`)) 
+
+      service: api@internal
       entryPoints:
         - websecure
       tls:
         certResolver: letsencrypt
       middlewares:
         - auth-dashboard
-      priority: 1000
+      priority: 1000   # 可选：加个高优先级，防止被其他路由抢
 
-  services:
-    dashboard-service:
-      loadBalancer:
-        servers:
-          - url: "http://127.0.0.1:8080"   
-          
   middlewares:
     auth-dashboard:
       basicAuth:
         users:
-          - "admin:$apr1$swPBZ14p$G/8g3SZn90lIeHYqVIanm1"
-
+          - "admin:$apr1$swPBZ14p$G/8g3SZn90lIeHYqVIanm1"   # 你原来的密码
