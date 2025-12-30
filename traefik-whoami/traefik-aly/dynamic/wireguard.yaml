@@ -2,6 +2,7 @@ http:
   routers:
     headscale:
       rule: Host(`wireguard.47.119.112.92.nip.io`)
+      # rule: Host(`wireguard.grep2000.com`)
       service: wireguard-vps
       entryPoints:
         - websecure
