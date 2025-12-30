@@ -3,7 +3,7 @@
 http:
   routers:
     dashboard:
-      rule: Host(`traefik-aly.165.22.241.196.nip.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  
+      rule: Host(`traefik-aly.47.119.112.92.nip.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))  
       # rule: Host(`traefik-aly.grep2000.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`)) 
 
       service: api@internal

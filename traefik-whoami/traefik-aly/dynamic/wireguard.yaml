@@ -1,7 +1,7 @@
 http:
   routers:
     headscale:
-      rule: Host(`wireguard.165.22.241.196.nip.io`)
+      rule: Host(`wireguard.47.119.112.92.nip.io`)
       service: wireguard-vps
       entryPoints:
         - websecure
