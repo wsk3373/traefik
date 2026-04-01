@@ -21,3 +21,18 @@ traefik_changelog.md
 integration/tailscale.secret
 integration/gateway-api-conformance-reports/**/experimental-dev-default-report.yaml
 acme.json
+.env
+traefik-whoami/traefik-sgp/.env
+**/.env
+
+# Environment variables - 忽略所有 .env 文件
+**/.env
+**/.env.*
+**/.env.local
+**/.env.*.local
+
+# 其他常见敏感文件（根据你的实际情况添加）
+*.key
+*.pem
+secrets.yml
+credentials.json
